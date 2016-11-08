@@ -64,8 +64,7 @@ public class MainActivity extends AppCompatActivity implements HotelAdapter.IHot
         if (requestCode == REQUEST_CODE_ADD && resultCode == RESULT_OK) {
             Hotel hotel = (Hotel) data.getSerializableExtra(HOTEL);
             mList.add(hotel);
-            if (isfiltered) mListALL.add(hotel);
-            doFilter(mQuery);
+            mAdapter.notifyDataSetChanged();
             //mAdapter.notifyDataSetChanged();
         } else if (requestCode == REQUEST_CODE_EDIT && resultCode == RESULT_OK) {
             Hotel hotel = (Hotel) data.getSerializableExtra(HOTEL);
